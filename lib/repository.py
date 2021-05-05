@@ -3,8 +3,8 @@ class Repository():
 
     def __init__(self, data):
         self._name = data['name']
-        self._region = data['region']
-        self._insignia = data['coatOfArms']
+        self._description = data['description']
+        self._language = data['language']
         self._save()
 
     def _save(self):
@@ -15,12 +15,12 @@ class Repository():
         return self._name
     
     @property
-    def region(self):
-        return self._region
+    def description(self):
+        return self._description
 
     @property
-    def insignia(self):
-        return self._insignia
+    def language(self):
+        return self._language
     
     @classmethod
     def find_by_input(cls, user_input):

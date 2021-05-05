@@ -15,18 +15,19 @@ class CLI():
         self._user_input = ""
 
     def start(self):
-        print(f'\n{Format.BLUE}{Format.BOLD}Winter is Coming...{Format.CLEAR}\n')
-        fetch_houses()
+        print(f'\n{Format.BLUE}{Format.BOLD}Welcome to github repo tracker!{Format.CLEAR}\n')
+        self._user_input = input(f'''\n{Format.BLUE}Please enter your github username \n{Format.CLEAR}''')
+        fetch_repos(self._user_input)
         self.menu()
 
     def menu(self):
-        for idx, house in enumerate(House.all, start=1):
-            print(f'{idx}. {house.name}')
+        for idx, repository in enumerate(Repository.all, start=1):
+            print(f'{idx}. {repository.name}')
         self.get_user_choice()
 
     def get_user_choice(self):
         try:
-            self._user_input = input(f'''\n{Format.BLUE}Which house would you like see more info for?\n{Format.CLEAR}''')
+            self._user_input = input(f'''\n{Format.BLUE}Which repo would you like see more info for?\n{Format.CLEAR}''')
             if self._user_input == 'exit':
                 return self.goodbye()
             if not self.valid_input(self._user_input):
@@ -45,7 +46,7 @@ class CLI():
 
     @staticmethod
     def valid_input(i):
-        return int(i) > 0 and int(i) <= len(House.all)
+        return int(i) > 0 and int(i) <= len(Repository.all)
 
     @staticmethod
     def goodbye():
