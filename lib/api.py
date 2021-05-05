@@ -1,9 +1,10 @@
 import requests
+from .repository import Repository
 
 # URL = f'https://api.github.com/users/{name}/repos'
 
 def fetch_repos(name):
-    
     req = requests.get(f'https://api.github.com/users/{name}/repos')
-    data = req.json():
+    for data in req.json():
+        Repository(data)
     return data
