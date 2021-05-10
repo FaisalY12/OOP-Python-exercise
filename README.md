@@ -1,4 +1,13 @@
-# OOP-Python-exercise
+# GitHub CLI
+
+## Installation and usage
+Note: make sure you have pipenv installed before continuing.
+
+- `cd` into demo
+- `pipenv shell` to activate your virtual environment for the project
+- `pipenv install` to install dependencies
+- `pipenv run start` or `python main.py` to run program
+
 
 ## Exercises
 
